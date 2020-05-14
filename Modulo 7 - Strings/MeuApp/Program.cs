@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -10,6 +11,18 @@ namespace MeuApp
         {
             Console.Clear();
             Aula15();
+        }
+
+        static void Aula0()
+        {
+            var texto = "Testando " + " ";
+            var texto2 = $"Testando {texto}";
+            var texto3 = $"Testando {1 + 1}";
+            var texto4 = @"\Testando \\";
+            Console.WriteLine(texto);
+            Console.WriteLine(texto2);
+            Console.WriteLine(texto3);
+            Console.WriteLine(texto4);
         }
 
         static void Aula1()
@@ -127,12 +140,39 @@ namespace MeuApp
 
         static void Aula15()
         {
-            // FALTA TERMINAR
-            var valor = "a1b2c3d4";
-            Console.WriteLine(Regex.IsMatch(valor, @"^\d$"));
+            // https://regexr.com/
+            var regex = new Regex(@"([0-9])\w+");
+            Console.WriteLine(regex.IsMatch("Este é um texto de teste"));
+            Console.WriteLine(regex.IsMatch("Este 25 um texto de teste"));
+        }
 
-            valor = "123";
-            Console.WriteLine(Regex.IsMatch(valor, "^\\d$"));
+        static void Aula16()
+        {
+            Console.WriteLine(
+                string.Compare(
+                    "texto",
+                    "texto"));
+
+            Console.WriteLine(
+                string.Compare(
+                    "Isto é um texto",
+                    "Isto e um texto",
+                    CultureInfo.CurrentCulture,
+                    CompareOptions.IgnoreNonSpace));
+
+            Console.WriteLine(
+                string.Compare(
+                    "Isto é um texto",
+                    "isto e um texto",
+                    CultureInfo.CurrentCulture,
+                    CompareOptions.IgnoreNonSpace));
+
+            Console.WriteLine(
+                string.Compare(
+                    "Isto é um texto",
+                    "isto e um texto",
+                    CultureInfo.CurrentCulture,
+                    CompareOptions.IgnoreSymbols));
         }
     }
 }
