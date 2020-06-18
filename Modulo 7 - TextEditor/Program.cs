@@ -10,10 +10,10 @@ namespace TextEditor
             Menu();
         }
 
-        public static void Menu()
+        static void Menu()
         {
             Console.Clear();
-            Console.WriteLine("O que deseja fazer?");
+            Console.WriteLine("O que você deseja fazer?");
             Console.WriteLine("1 - Abrir arquivo");
             Console.WriteLine("2 - Criar novo arquivo");
             Console.WriteLine("0 - Sair");
@@ -22,31 +22,36 @@ namespace TextEditor
             switch (option)
             {
                 case 0: System.Environment.Exit(0); break;
-                case 1: AbrirArquivo(); break;
-                case 2: EditorMode(); break;
+                case 1: Abrir(); break;
+                case 2: Editar(); break;
                 default: Menu(); break;
             }
         }
 
-        public static void AbrirArquivo()
+        static void Abrir()
         {
             Console.Clear();
             Console.WriteLine("Qual caminho do arquivo?");
-            string filePath = Console.ReadLine();
+            string path = Console.ReadLine();
 
-            using (var file = new StreamReader(filePath))
+            using (var file = new StreamReader(path))
             {
                 string text = file.ReadToEnd();
                 Console.WriteLine(text);
             }
+
+            Console.WriteLine("");
+            Console.ReadLine();
+            Menu();
         }
 
-        public static void EditorMode()
+        static void Editar()
         {
             Console.Clear();
             Console.WriteLine("Digite seu texto abaixo (ESC para sair)");
-            Console.WriteLine("-----------------------");
+            Console.WriteLine("----------------");
             string text = "";
+
             do
             {
                 text += Console.ReadLine();
@@ -54,11 +59,10 @@ namespace TextEditor
             }
             while (Console.ReadKey().Key != ConsoleKey.Escape);
 
-
-            SaveFile(text);
+            Salvar(text);
         }
 
-        public static void SaveFile(string text)
+        static void Salvar(string text)
         {
             Console.Clear();
             Console.WriteLine("Qual caminho para salvar o arquivo?");
@@ -70,6 +74,7 @@ namespace TextEditor
             }
 
             Console.WriteLine($"Arquivo {path} salvo com sucesso!");
+            Console.ReadLine();
             Menu();
         }
     }
