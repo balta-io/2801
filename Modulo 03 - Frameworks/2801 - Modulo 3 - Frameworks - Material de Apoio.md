@@ -58,7 +58,7 @@ Para garantir que tudo que criarmos seja compatível tanto com .NET Core quanto 
 
 O .NET Standard é o que chamamos de **Surface API**, ou seja não é algo palpável ou visível, apenas um conjunto de definições.
 
-Então não "progamamos" em .NET Standard, e sim utilizamos ele como uma referência para saber o que podemos usar de cada framework a fim de ter uma compatibilidade entre ambos.
+Então não "programamos" em .NET Standard, e sim utilizamos ele como uma referência para saber o que podemos usar de cada framework a fim de ter uma compatibilidade entre ambos.
 
 Podemos dizer que .NET Standard é a intersecção entre ambos frameworks, que nos garante que tudo que utilizarmos em um, estará presente em outro.
 
