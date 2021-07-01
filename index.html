@@ -1,0 +1,2409 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fundamentos do C# | balta.io</title>
+
+    <meta name="description"
+        content="Aprenda ou consolide todos os conhecimentos necess&#xE1;rios para trabalhar com C# e .NET!">
+    <meta name="keywords" content="fundamentos,csharp">
+    <meta name="author" content="balta.io">
+
+    <!--Twitter Share-->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="https://balta.io/cursos/fundamentos-csharp" />
+    <meta name="twitter:creator" content="@balta_io" />
+    <meta name="twitter:title" content="Fundamentos do C#" />
+    <meta name="twitter:description"
+        content="Aprenda ou consolide todos os conhecimentos necess&#xE1;rios para trabalhar com C# e .NET!" />
+    <meta name="twitter:image"
+        content="https://baltaio.blob.core.windows.net/static/images/courses/fundamentos-csharp_share.jpg" />
+
+    <!--Facebook/LinkedIn Share-->
+    <meta property="og:url" content="https://balta.io/cursos/fundamentos-csharp" />
+    <meta property="og:title" content="Fundamentos do C# - balta.io" />
+    <meta property="og:description"
+        content='Aprenda ou consolide todos os conhecimentos necess&#xE1;rios para trabalhar com C# e .NET!' />
+    <meta property="og:image"
+        content='https://baltaio.blob.core.windows.net/static/images/courses/fundamentos-csharp_share.jpg' />
+
+    <link rel="icon" type="image/x-icon"
+        href="https://baltaio.blob.core.windows.net/static/images/icons/favicon.ico?v1" />
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://baltaio.blob.core.windows.net/static/images/icons/favicon.ico?v1" />
+    <link rel="stylesheet" href="https://baltaio.blob.core.windows.net/static/css/uikit.balta.dark.css?v1" />
+
+    <link rel="stylesheet" href="/css/site.css?v=Xf9wDwoEu67xOdNRvXvQdyfFF6GZqkqgMYikpsnQG3o">
+
+</head>
+
+<body>
+
+    <div class="uk-alert-primary announcement" uk-alert>
+        <button class="primary uk-alert-close" type="button" uk-close></button>
+        <p class="uk-text-center">
+            <a href="https://balta.io/agenda/implementando-microsservicos?utm_source=banner&amp;utm_medium=site&amp;utm_campaign=balta"
+                class="no-link" target="_blank">
+                LIVE MICROSSERVIÇOS
+            </a>
+        </p>
+    </div>
+
+
+    <header>
+        <div class="uk-container">
+            <nav class="uk-navbar-container uk-margin-top uk-margin-large-bottom" uk-navbar>
+                <div class="uk-navbar-left">
+                    <button class="uk-icon-button uk-hidden@m" uk-icon="menu" uk-toggle="target: #side-menu"></button>
+                    <a href="/">
+                        <img class="uk-visible@m"
+                            src="https://baltaio.blob.core.windows.net/static/images/dark/balta-logo.svg" width="180"
+                            alt="balta.io" />
+                        <img class="uk-hidden@m"
+                            src="https://baltaio.blob.core.windows.net/static/images/dark/balta-logo.svg" width="150"
+                            alt="balta.io" />
+                    </a>
+                    <ul class="uk-navbar-nav uk-margin-small-left uk-visible@s">
+                        <li>
+                            <a href="/cursos">Cursos</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="uk-navbar-right">
+
+                    <ul class="uk-navbar-nav uk-visible@m">
+                        <li>
+                            <a href="/carreiras">Carreiras</a>
+                        </li>
+                        <li>
+                            <a href="/como-funciona">Como funciona?</a>
+                        </li>
+                        <li>
+                            <a href="/agenda">Agenda</a>
+                        </li>
+                        <li>
+                            <a href="/blog">Blog</a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="/blog/rss">
+                                <span uk-icon="icon: rss; ratio: 0.8"></span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <hr class="uk-divider-vertical uk-visible@m">
+
+                    <a title="Ir para o Player" class="uk-icon-button uk-button-default uk-margin-right" uk-icon="tv"
+                        href="/player">
+                    </a>
+
+                    <a class="uk-button uk-button-secondary uk-margin-left uk-visible@s" href="/premium">
+                        <span class="uk-margin-small-right uk-visible@l" uk-icon="icon: star; ratio: 0.6"></span>
+                        <span class="uk-visible@l">Seja</span> Premium
+                    </a>
+
+                </div>
+            </nav>
+
+
+            <div id="side-menu" uk-offcanvas>
+                <div class="uk-offcanvas-bar">
+                    <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+                    <div class="uk-flex uk-flex-between uk-flex-column uk-height-1-1">
+                        <div>
+                            <img data-src="https://baltaio.blob.core.windows.net/static/images/dark/balta-logo.svg"
+                                uk-img alt="balta.io" />
+                            <br /><br />
+                            <ul class="uk-nav">
+                                <li>
+                                    <a href="/cursos">Cursos</a>
+                                </li>
+                                <li>
+                                    <a href="/carreiras">Carreiras</a>
+                                </li>
+                                <li>
+                                    <a href="/como-funciona">Como funciona?</a>
+                                </li>
+                                <li>
+                                    <a href="/agenda">Agenda</a>
+                                </li>
+                                <li>
+                                    <a href="/blog">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="/player">
+                                        <div class="uk-flex uk-flex-between uk-flex-middle">
+                                            Player
+                                            <span uk-icon="icon: tv; ratio: 1.2"></span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <a class="uk-button uk-button-secondary uk-width-1-1" href="">
+                                <span class="uk-margin-small-right" uk-icon="icon: star; ratio: 0.6"></span>
+                                Seja Premium
+                            </a>
+
+                            <p class="uk-text-center">
+                                <a href="/entrar"><strong>Entre</strong> ou <strong>Cadastre-se</strong></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="uk-container">
+            <ul class="uk-breadcrumb">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/cursos">Cursos</a>
+                </li>
+                <li>
+                    <span>Fundamentos do C#</span>
+                </li>
+            </ul>
+        </div>
+
+        <br>
+        <br>
+
+        <div class="uk-container uk-margin-large-top">
+            <div class="uk-flex uk-flex-between" uk-grid>
+                <div class="uk-width-1-2@s">
+
+                    <span class="uk-label uk-label-secondary">Premium</span>
+
+
+                    <h2>Fundamentos do C#</h2>
+                    <p>Aprenda ou consolide todos os conhecimentos necess&#xE1;rios para trabalhar com C# e .NET!</p>
+
+                    <div class="uk-grid-small uk-flex-middle uk-text-bold" uk-grid>
+                        <div class="uk-width-auto">
+
+                            <span uk-icon="icon: clock; ratio: 0.8"></span>
+                            <small>12.2 horas</small>
+
+                        </div>
+                        <div class="uk-width-expand">
+
+                            <span uk-icon="icon: info; ratio: 0.8"></span>
+                            <small>Fundamental</small>
+
+                        </div>
+                    </div>
+
+                    <ul uk-tab>
+                        <li>
+                            <a href="#">Sobre o curso</a>
+                        </li>
+                        <li>
+                            <a href="#">Aulas</a>
+                        </li>
+                    </ul>
+
+                    <ul class="uk-switcher uk-margin">
+                        <li>
+                            <div>
+                                <p>Esta é a página do curso <strong>2801 - Fundamentos do C#</strong>.</p>
+                                <p>Conhecer fundamentos é essencial para qualquer desenvolvedor. Os fundamentos são os
+                                    conceitos que servem como um alicerce, e permitirão que você aprenda novas
+                                    tecnologias com mais facilidade, já que os conceitos fundamentais são compartilhados
+                                    entre tecnologias diferentes.</p>
+                                <p>Todo o aprendizado deste curso poderá ser reaproveitado em outras linguagens de
+                                    programação, por isso, não pule este curso!</p>
+                                <p>Nas próximas seções, você descobrirá o que vai aprender neste curso, para quem ele é
+                                    recomendado, quais as tecnologias utilizas e o que será construído no decorrer do
+                                    curso.</p>
+                                <h2 id="neste-curso-de-c-você-vai">Neste curso de C# você vai...</h2>
+                                <ul>
+                                    <li>Aprender todos os conceitos fundamentais da linguagem C#</li>
+                                    <li>Aprender conceitos de programação que servem para outras linguagens de
+                                        programação</li>
+                                    <li>Conhecer um pouco sobre linguagens e compiladores</li>
+                                    <li>Conhecer um pouco da história do C# e dos frameworks .NET da Microsoft</li>
+                                    <li>Preparar seu ambiente de desenvolvimento</li>
+                                    <li>Aprender os principais tipos de dados em linguagens orientadas à objetos</li>
+                                    <li>Aprender a manipular strings, datas, moedas e arrays</li>
+                                    <li>Aprender a converter os tipos de dados</li>
+                                    <li>Aprender operadores aritméticos, de atribuição, de comparação e lógicos</li>
+                                    <li>Aprender a utilizar estruturas condicionais como if e switch</li>
+                                    <li>Aprender a utilizar estruturas de repetição, como For, While e Do/While</li>
+                                    <li>Aprender a escrever métodos e funções utilizando boas práticas</li>
+                                    <li>Aprender a utilizar Structs e Enums</li>
+                                    <li>Entender e começar a trabalhar com exceções (Exceptions)</li>
+                                    <li>Aprender a criar aplicações Console com C#</li>
+                                </ul>
+                                <h2 id="para-quem-é-recomendado-este-curso-de-c">Para quem é recomendado este curso de
+                                    C#</h2>
+                                <ul>
+                                    <li>Iniciantes na área de programação</li>
+                                    <li>Programadores com alguma experiência em outra linguagem que querem migrar para
+                                        C#</li>
+                                    <li>Profissionais que estão se preparando para uma entrevista técnica para trabalhar
+                                        com .NET</li>
+                                    <li>Profissionais experientes que querem fechar lacunas nos seus conhecimentos
+                                        fundamentais</li>
+                                </ul>
+                                <h2 id="tecnologias-e-versões-utilizadas">Tecnologias e versões utilizadas</h2>
+                                <ul>
+                                    <li>.NET Core 3.1 LTS</li>
+                                    <li>Visual Studio Code (Versão mais recente disponível)</li>
+                                </ul>
+                                <h2 id="projetos-do-curso">Projetos do curso</h2>
+                                <ul>
+                                    <li>Calculadora Console com as quatro operações básicas.</li>
+                                    <li>Cronômetro para aprender Funções, Thread, Sleep.</li>
+                                    <li>Editor de textos em Console para praticar controle de fluxo, ler e gravar
+                                        arquivos e processar inputs do teclado.</li>
+                                    <li>Editor de HTML em Console para praticar estruturas de repetição, e realizar um
+                                        parsing/processamento básico de strings.</li>
+                                </ul>
+
+                            </div>
+                        </li>
+                        <li>
+                            <ul uk-accordion="collapsible: false">
+                                <li>
+                                    <a class="uk-accordion-title" href="#">
+                                        <small>Módulo 1</small><br>
+                                        Linguagens e Compiladores
+                                    </a>
+                                    <div class="uk-accordion-content">
+
+                                        <ul class="uk-list uk-list-divider uk-list-striped">
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-apresentacao">
+                                                    Apresenta&#xE7;&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>6 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-linguagens-de-programacao">
+                                                    Linguagens de programa&#xE7;&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>2 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-alto-e-baixo-nivel">
+                                                    Alto e baixo n&#xED;vel -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>3 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-linguagem-compilada-e-interpretada">
+                                                    Linguagem compilada e interpretada -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>2 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-compilada-e-interpretada">
+                                                    Compilada e interpretada -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>7 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-tipagem-de-dados">
+                                                    Tipagem de dados -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>5 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-revisao_280101">
+                                                    Revis&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>2 mins</small>
+
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a class="uk-accordion-title" href="#">
+                                        <small>Módulo 2</small><br>
+                                        C#
+                                    </a>
+                                    <div class="uk-accordion-content">
+
+                                        <ul class="uk-list uk-list-divider uk-list-striped">
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-por-que-utilizar-c">
+                                                    Por que utilizar C#? -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>7 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-c-como-primeira-linguagem">
+                                                    C# como primeira linguagem -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>7 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-codigo-gerenciado">
+                                                    C&#xF3;digo gerenciado -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-compilacao-e-gerenciamento">
+                                                    Compila&#xE7;&#xE3;o e gerenciamento -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-il">
+                                                    IL -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>3 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-revisao_280102">
+                                                    Revis&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>2 mins</small>
+
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a class="uk-accordion-title" href="#">
+                                        <small>Módulo 3</small><br>
+                                        Frameworks
+                                    </a>
+                                    <div class="uk-accordion-content">
+
+                                        <ul class="uk-list uk-list-divider uk-list-striped">
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-frameworks">
+                                                    Frameworks -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-net-framework">
+                                                    .NET Framework -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-net-core">
+                                                    .NET Core -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>5 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-net-standard">
+                                                    .NET Standard -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>3 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-net-5">
+                                                    .NET 5 -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>2 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-lts">
+                                                    LTS -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-versionamento">
+                                                    Versionamento -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>7 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-runtime-e-sdk">
+                                                    Runtime e SDK -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>6 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-revisao_280103">
+                                                    Revis&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>1 mins</small>
+
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a class="uk-accordion-title" href="#">
+                                        <small>Módulo 4</small><br>
+                                        .NET
+                                    </a>
+                                    <div class="uk-accordion-content">
+
+                                        <ul class="uk-list uk-list-divider uk-list-striped">
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-instalacao">
+                                                    Instala&#xE7;&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>5 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-dotnet-cli">
+                                                    dotnet cli -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>6 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-vs-code">
+                                                    VS Code -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>10 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-tipos-de-projeto">
+                                                    Tipos de projeto -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>10 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-fluxo-de-execucao">
+                                                    Fluxo de execu&#xE7;&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>7 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-variaveis-de-ambiente">
+                                                    Vari&#xE1;veis de ambiente -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>5 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-estrutura-do-app">
+                                                    Estrutura do App -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>9 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-debug">
+                                                    Debug -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>12 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-revisao_280104">
+                                                    Revis&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>2 mins</small>
+
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a class="uk-accordion-title" href="#">
+                                        <small>Módulo 5</small><br>
+                                        Linguagem de Programa&#xE7;&#xE3;o com C#
+                                    </a>
+                                    <div class="uk-accordion-content">
+
+                                        <ul class="uk-list uk-list-divider uk-list-striped">
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-notas-importantes">
+                                                    Notas importantes -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>2 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-escopo-de-um-programa">
+                                                    Escopo de um programa -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>3 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-namespaces">
+                                                    Namespaces -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>8 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-using">
+                                                    Using -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>3 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-variaveis">
+                                                    Vari&#xE1;veis -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>7 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-constantes">
+                                                    Constantes -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-palavras-reservadas">
+                                                    Palavras reservadas -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>2 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-comentarios">
+                                                    Coment&#xE1;rios -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>6 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-tipos-primitivos">
+                                                    Tipos primitivos -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-system">
+                                                    System -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>3 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-byte">
+                                                    Byte -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>3 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-numeros-inteiros">
+                                                    N&#xFA;meros inteiros -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-numeros-reais">
+                                                    N&#xFA;meros reais -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>5 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-boolean">
+                                                    Boolean -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>2 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-char">
+                                                    Char -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>2 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-string">
+                                                    String -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>3 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-var">
+                                                    Var -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-object">
+                                                    Object -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-nullabel-types">
+                                                    Nullabel Types -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>6 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-alias">
+                                                    Alias -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>3 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-valores-padroes">
+                                                    Valores padr&#xF5;es -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>3 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-conversao-implicita">
+                                                    Convers&#xE3;o impl&#xED;cita -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-conversao-explicita">
+                                                    Convers&#xE3;o expl&#xED;cita -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>3 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-parse">
+                                                    Parse -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>3 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-convert">
+                                                    Convert -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>3 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-convertendo-tipos">
+                                                    Convertendo tipos -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>13 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-operadores-aritmeticos">
+                                                    Operadores aritm&#xE9;ticos -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-operadores-de-atribuicao">
+                                                    Operadores de atribui&#xE7;&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>2 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-operadores-de-comparacao">
+                                                    Operadores de compara&#xE7;&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>3 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-utilizando-operadores">
+                                                    Utilizando operadores -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>8 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-operadores-logicos">
+                                                    Operadores l&#xF3;gicos -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-operador-condicional-if">
+                                                    Operador condicional: IF -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>3 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-utilizando-if">
+                                                    Utilizando IF -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>10 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-estrutura-condicional-switch">
+                                                    Estrutura condicional: Switch -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>8 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-lacos-de-repeticao-for">
+                                                    La&#xE7;os de repeti&#xE7;&#xE3;o: For -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>7 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-lacos-de-repeticao-while">
+                                                    La&#xE7;os de repeti&#xE7;&#xE3;o: While -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>5 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-lacos-de-repeticao-do-while">
+                                                    La&#xE7;os de repeti&#xE7;&#xE3;o: Do/While -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-metodos-e-funcoes">
+                                                    M&#xE9;todos e fun&#xE7;&#xF5;es -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>6 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-metodos-e-funcoes-pratica">
+                                                    M&#xE9;todos e fun&#xE7;&#xF5;es: Pr&#xE1;tica -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>11 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-value-types-e-reference-types">
+                                                    Value Types e Reference Types -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>7 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-value-types-e-reference-types-pratica">
+                                                    Value Types e Reference Types: Pr&#xE1;tica -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>5 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-structs">
+                                                    Structs -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>9 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-structs-pratica">
+                                                    Structs: Pr&#xE1;tica -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>8 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-enums">
+                                                    Enums -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>9 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-revisao_280105">
+                                                    Revis&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>3 mins</small>
+
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a class="uk-accordion-title" href="#">
+                                        <small>Módulo 6</small><br>
+                                        M&#xE3;o na massa: Criando uma calculadora
+                                    </a>
+                                    <div class="uk-accordion-content">
+
+                                        <ul class="uk-list uk-list-divider uk-list-striped">
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-iniciando-o-projeto">
+                                                    Iniciando o projeto -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>7 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-soma">
+                                                    Soma -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>6 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-utilizando-funcoes">
+                                                    Utilizando fun&#xE7;&#xF5;es -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>2 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-subtracao">
+                                                    Subtra&#xE7;&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-divisao">
+                                                    Divis&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-multiplicacao">
+                                                    Multiplica&#xE7;&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-menu-da-aplicacao">
+                                                    Menu da aplica&#xE7;&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-chamando-as-funcoes">
+                                                    Chamando as fun&#xE7;&#xF5;es -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>6 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-saindo-da-aplicacao">
+                                                    Saindo da aplica&#xE7;&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>3 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-revisao_280106">
+                                                    Revis&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>2 mins</small>
+
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a class="uk-accordion-title" href="#">
+                                        <small>Módulo 7</small><br>
+                                        M&#xE3;o na massa: Cron&#xF4;metro
+                                    </a>
+                                    <div class="uk-accordion-content">
+
+                                        <ul class="uk-list uk-list-divider uk-list-striped">
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-iniciando-o-projeto">
+                                                    Iniciando o projeto -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>3 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-estrutura-do-cronometro">
+                                                    Estrutura do cron&#xF4;metro -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-thread-e-sleep">
+                                                    Thread e Sleep -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>5 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-criando-o-menu">
+                                                    Criando o menu -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>5 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-opcoes-do-menu">
+                                                    Op&#xE7;&#xF5;es do menu -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-substring">
+                                                    Substring -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>6 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-obtendo-a-opcao">
+                                                    Obtendo a op&#xE7;&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>3 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-calculando-o-tempo">
+                                                    Calculando o tempo -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>5 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-finalizando-a-aplicacao">
+                                                    Finalizando a aplica&#xE7;&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>3 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-revisao_280107">
+                                                    Revis&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>2 mins</small>
+
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a class="uk-accordion-title" href="#">
+                                        <small>Módulo 8</small><br>
+                                        M&#xE3;o na massa: Editor de Textos
+                                    </a>
+                                    <div class="uk-accordion-content">
+
+                                        <ul class="uk-list uk-list-divider uk-list-striped">
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-iniciando-o-projeto">
+                                                    Iniciando o projeto -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>6 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-iteracao-e-caractere-de-escape">
+                                                    Itera&#xE7;&#xE3;o e caractere de escape -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>5 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-do-while-na-pratica">
+                                                    Do/While na pr&#xE1;tica -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-streamwriter">
+                                                    StreamWriter -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>5 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-salvando-o-arquivo">
+                                                    Salvando o arquivo -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-abrindo-arquivos">
+                                                    Abrindo arquivos -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>3 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-revisao_280108">
+                                                    Revis&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>2 mins</small>
+
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a class="uk-accordion-title" href="#">
+                                        <small>Módulo 9</small><br>
+                                        Strings
+                                    </a>
+                                    <div class="uk-accordion-content">
+
+                                        <ul class="uk-list uk-list-divider uk-list-striped">
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-guids">
+                                                    Guids -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>9 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-interpolacao-de-strings">
+                                                    Interpola&#xE7;&#xE3;o de strings -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>12 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-comparacao-de-strings">
+                                                    Compara&#xE7;&#xE3;o de strings -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>6 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-startswith-endswith">
+                                                    StartsWith/EndsWith -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>3 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-equals">
+                                                    Equals -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>2 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-indices">
+                                                    &#xCD;ndices -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>5 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-metodos-adicionais">
+                                                    M&#xE9;todos adicionais -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-manipulando-strings">
+                                                    Manipulando strings -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>7 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-stringbuilder">
+                                                    StringBuilder -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>5 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-revisao_280109">
+                                                    Revis&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>1 mins</small>
+
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a class="uk-accordion-title" href="#">
+                                        <small>Módulo 10</small><br>
+                                        M&#xE3;o na massa: Editor HTML
+                                    </a>
+                                    <div class="uk-accordion-content">
+
+                                        <ul class="uk-list uk-list-divider uk-list-striped">
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-iniciando-o-projeto">
+                                                    Iniciando o projeto -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>6 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-desenhando-a-tela">
+                                                    Desenhando a tela -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>7 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-exibindo-o-menu">
+                                                    Exibindo o menu -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>5 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-menu-da-aplicacao">
+                                                    Menu da aplica&#xE7;&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>3 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-editor">
+                                                    Editor -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>7 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-visualizador">
+                                                    Visualizador -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>9 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-substituindo-caracteres">
+                                                    Substituindo caracteres -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>10 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-revisao_280110">
+                                                    Revis&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>2 mins</small>
+
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a class="uk-accordion-title" href="#">
+                                        <small>Módulo 11</small><br>
+                                        Datas
+                                    </a>
+                                    <div class="uk-accordion-content">
+
+                                        <ul class="uk-list uk-list-divider uk-list-striped">
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-iniciando-com-datas">
+                                                    Iniciando com datas -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>6 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-obtendo-valores-da-data">
+                                                    Obtendo valores da data -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>6 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-formatando-datas">
+                                                    Formatando datas -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>10 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-padroes-de-formatacao">
+                                                    Padr&#xF5;es de formata&#xE7;&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-adicionando-valores">
+                                                    Adicionando valores -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>5 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-comparando-datas">
+                                                    Comparando datas -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>5 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-cultureinfo">
+                                                    CultureInfo -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>6 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-timezone">
+                                                    Timezone -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>10 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-timespan">
+                                                    Timespan -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>5 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-revisao_280111">
+                                                    Revis&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a class="uk-accordion-title" href="#">
+                                        <small>Módulo 12</small><br>
+                                        Moedas
+                                    </a>
+                                    <div class="uk-accordion-content">
+
+                                        <ul class="uk-list uk-list-divider uk-list-striped">
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-tipo-para-moedas">
+                                                    Tipo para moedas -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-formatando-moedas">
+                                                    Formatando moedas -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>8 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-math">
+                                                    Math -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>3 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-revisao_280112">
+                                                    Revis&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>3 mins</small>
+
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a class="uk-accordion-title" href="#">
+                                        <small>Módulo 13</small><br>
+                                        Arrays
+                                    </a>
+                                    <div class="uk-accordion-content">
+
+                                        <ul class="uk-list uk-list-divider uk-list-striped">
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-arrays">
+                                                    Arrays -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>9 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-percorrendo-um-array">
+                                                    Percorrendo um array -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>6 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-foreach">
+                                                    ForEach -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>6 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-alterando-os-valores">
+                                                    Alterando os valores -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-revisao_280113">
+                                                    Revis&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>2 mins</small>
+
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a class="uk-accordion-title" href="#">
+                                        <small>Módulo 14</small><br>
+                                        Exceptions
+                                    </a>
+                                    <div class="uk-accordion-content">
+
+                                        <ul class="uk-list uk-list-divider uk-list-striped">
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-exceptions">
+                                                    Exceptions -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>5 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-try-catch">
+                                                    Try/Catch -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>6 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-tratando-erros">
+                                                    Tratando erros -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-disparando-excecoes">
+                                                    Disparando exce&#xE7;&#xF5;es -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>6 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-custom-exceptions">
+                                                    Custom Exceptions -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>4 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-finally">
+                                                    Finally -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>3 mins</small>
+
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/cursos/fundamentos-csharp/fundamentos-csharp-revisao_280114">
+                                                    Revis&#xE3;o -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>1 mins</small>
+
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a class="uk-accordion-title" href="#">
+                                        <small>Módulo 15</small><br>
+                                        Conclus&#xE3;o
+                                    </a>
+                                    <div class="uk-accordion-content">
+
+                                        <ul class="uk-list uk-list-divider uk-list-striped">
+                                            <li>
+                                                <a
+                                                    href="/cursos/fundamentos-csharp/fundamentos-csharp-parabens-voce-conseguiu">
+                                                    Parab&#xE9;ns, voc&#xEA; conseguiu! -
+                                                    <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                    <small>1 mins</small>
+
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="uk-width-1-3@s">
+
+                    <h4>Instrutor</h4>
+                    <a class="no-link" href="/contribuidores/andre-baltieri">
+
+                        <div class="uk-grid-small uk-flex-middle" uk-grid>
+                            <div class="uk-width-auto">
+                                <a class="no-link" href="/contribuidores/andre-baltieri">
+                                    <img class="uk-border-circle" width="40" height="40"
+                                        src="https://baltaio.blob.core.windows.net/static/images/authors/andrebaltieri.jpg"
+                                        alt="Andr&#xE9; Baltieri">
+                                </a>
+                            </div>
+                            <div class="uk-width-expand">
+                                <a class="no-link" href="/contribuidores/andre-baltieri">
+                                    <p class="uk-margin-remove-bottom uk-text-emphasis uk-text-bold">Andr&#xE9; Baltieri
+                                    </p>
+                                    <p class="uk-text-meta uk-margin-remove-top">Microsoft MVP</p>
+                                </a>
+                            </div>
+                        </div>
+                    </a>
+                    <hr />
+                    <h4>Carreiras relacionadas</h4>
+                    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
+                        <ul class="uk-slider-items uk-child-width-1-1">
+
+                            <a class="no-link" href="/carreiras/desenvolvedor-backend-dotnet">
+                                <div class="uk-card uk-card-default content-card uk-border-rounded">
+                                    <div class="uk-card-media-top uk-margin uk-border-rounded uk-background-cover uk-height-medium uk-panel uk-text-left uk-flex uk-flex-bottom"
+                                        style="background-image: url(https://baltaio.blob.core.windows.net/static/images/careers/desenvolvedor-backend-dotnet_banner.jpg);">
+                                        <div class="uk-padding">
+                                            <h4 class="uk-text-normal uk-margin-remove uk-padding-remove">Desenvolvedor
+                                                Backend .NET</h4>
+                                            <br />
+                                            <div class="uk-border-rounded uk-padding-small uk-flex uk-flex uk-flex-middle"
+                                                style="background-color: rgba(0,0,0,0.2)">
+                                                <strong>
+                                                    <small><span class="uk-margin-small-right"
+                                                            uk-icon="icon: album; ratio: 0.8"></span> 8 cursos</small>
+                                                </strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </ul>
+
+                        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#"
+                            uk-slidenav-previous uk-slider-item="previous"></a>
+                        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
+                            uk-slider-item="next"></a>
+                    </div>
+
+                    <hr />
+
+                    <h4>Artigos relacionados</h4>
+                    <ul class="uk-list">
+                        <li>
+                            <a href="/blog/dapper-entity-framework-core">Dapper ou Entity Framework Core - Qual
+                                escolher?</a>
+                        </li>
+                        <li>
+                            <a href="/blog/datetime-csharp-dotnet">DateTime no C# e .NET</a>
+                        </li>
+                        <li>
+                            <a href="/blog/aspnet-autenticacao-apikey">ASP.NET - Autentica&#xE7;&#xE3;o com ApiKey</a>
+                        </li>
+                    </ul>
+
+                    <hr />
+
+                    <h4>Cursos relacionados</h4>
+                    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
+                        <ul class="uk-slider-items uk-child-width-1-1">
+
+                            <a class="no-link" href="/cursos/fundamentos-orientacao-objetos">
+                                <div class="uk-card uk-card-default content-card uk-border-rounded">
+                                    <div class="uk-card-media-top">
+                                        <img src='https://baltaio.blob.core.windows.net/static/images/courses/fundamentos-orientacao-objetos_banner.jpg'
+                                            class="uk-border-rounded"
+                                            alt="Fundamentos da Orienta&#xE7;&#xE3;o a Objetos" />
+                                    </div>
+                                    <div class="uk-card-body uk-flex uk-flex-column">
+                                        <div class="uk-height-small">
+                                            <h5 class="uk-text-bolder">Fundamentos da Orienta&#xE7;&#xE3;o a Objetos
+                                            </h5>
+                                        </div>
+                                        <div class="uk-grid-small uk-flex-middle uk-text-bold" uk-grid>
+                                            <div class="uk-width-auto">
+
+                                                <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                <small>4.1 horas</small>
+
+                                            </div>
+                                            <div class="uk-width-expand">
+
+                                                <span uk-icon="icon: info; ratio: 0.8"></span>
+                                                <small>Fundamental</small>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+
+                            <a class="no-link" href="/cursos/fundamentos-csharp">
+                                <div class="uk-card uk-card-default content-card uk-border-rounded">
+                                    <div class="uk-card-media-top">
+                                        <img src='https://baltaio.blob.core.windows.net/static/images/courses/fundamentos-csharp_banner.jpg'
+                                            class="uk-border-rounded" alt="Fundamentos do C#" />
+                                    </div>
+                                    <div class="uk-card-body uk-flex uk-flex-column">
+                                        <div class="uk-height-small">
+                                            <h5 class="uk-text-bolder">Fundamentos do C#</h5>
+                                        </div>
+                                        <div class="uk-grid-small uk-flex-middle uk-text-bold" uk-grid>
+                                            <div class="uk-width-auto">
+
+                                                <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                <small>12.2 horas</small>
+
+                                            </div>
+                                            <div class="uk-width-expand">
+
+                                                <span uk-icon="icon: info; ratio: 0.8"></span>
+                                                <small>Fundamental</small>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+
+                            <a class="no-link"
+                                href="/cursos/criando-um-todo-app-com-aspnet-core-firebase-angular-flutter">
+                                <div class="uk-card uk-card-default content-card uk-border-rounded">
+                                    <div class="uk-card-media-top">
+                                        <img src='https://baltaio.blob.core.windows.net/static/images/courses/criando-um-todo-app-com-aspnet-core-firebase-angular-flutter_banner.jpg'
+                                            class="uk-border-rounded"
+                                            alt="Criando um TodoApp com ASP.NET Core, Firebase, Angular e Flutter" />
+                                    </div>
+                                    <div class="uk-card-body uk-flex uk-flex-column">
+                                        <div class="uk-height-small">
+                                            <h5 class="uk-text-bolder">Criando um TodoApp com ASP.NET Core, Firebase,
+                                                Angular e Flutter</h5>
+                                        </div>
+                                        <div class="uk-grid-small uk-flex-middle uk-text-bold" uk-grid>
+                                            <div class="uk-width-auto">
+
+                                                <span uk-icon="icon: clock; ratio: 0.8"></span>
+                                                <small>9.6 horas</small>
+
+                                            </div>
+                                            <div class="uk-width-expand">
+
+                                                <span uk-icon="icon: info; ratio: 0.8"></span>
+                                                <small>Intermediário</small>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                        </ul>
+
+                        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#"
+                            uk-slidenav-previous uk-slider-item="previous"></a>
+                        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
+                            uk-slider-item="next"></a>
+                    </div>
+
+                    <hr />
+                    <br />
+                    <a class="uk-button uk-button-primary uk-width-1-1 uk-text-emphasis uk-text-bold"
+                        href="/premium?returnUrl=%2Fcursos%2Ffundamentos-csharp">
+                        Matricule-se
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="background-dark-light">
+            <div class="uk-container">
+                <div class="uk-margin-large-top uk-margin-large-bottom uk-text-center uk-grid-match" uk-grid>
+                    <div class="uk-width-1-4@l uk-width-1-2@s uk-text-center">
+                        <h2 class="uk-padding-remove uk-margin-remove">1.853</h2>
+                        <p class="uk-padding-remove uk-margin-remove">Aulas disponíveis</p>
+                    </div>
+                    <div class="uk-width-1-4@l uk-width-1-2@s uk-text-center">
+                        <h2 class="uk-padding-remove uk-margin-remove">266</h2>
+                        <p class="uk-padding-remove uk-margin-remove">horas de conteúdo</p>
+                    </div>
+                    <div class="uk-width-1-4@l uk-width-1-2@s uk-text-center">
+                        <h2 class="uk-padding-remove uk-margin-remove">29.753</h2>
+                        <p class="uk-padding-remove uk-margin-remove">Alunos matriculados</p>
+                    </div>
+                    <div class="uk-width-1-4@l uk-width-1-2@s uk-text-center">
+                        <h2 class="uk-padding-remove uk-margin-remove">22.188</h2>
+                        <p class="uk-padding-remove uk-margin-remove">Certificados emitidos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="uk-container">
+            <div class="uk-padding-large-top uk-flex uk-flex-column@s uk-flex-row@m uk-flex-between uk-flex-middle uk-background-primary uk-border-rounded uk-padding"
+                style="border-bottom: 4px solid #FF508F;">
+                <div>
+                    <h3 class="uk-padding-remove uk-margin-remove">Comece de graça agora mesmo!</h3>
+                    <p class="uk-padding-remove uk-margin-remove">
+                        <small>Temos mais de 16 cursos totalmente de graça e todos com certificado de
+                            conclusão.</small>
+                    </p>
+                </div>
+                <div>
+                    <a href="https://balta.io/comecar" class="uk-button uk-button-secondary">Começar</a>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <br>
+
+        <div class="uk-container">
+            <div class="uk-margin-large-top">
+                <div class="uk-text-center">
+                    <p class="uk-padding-remove uk-margin-remove uk-text-bolder">Prefere algo mais Premium?</p>
+                    <h2 class="uk-padding-remove uk-margin-remove">Conheça nossos planos</h2>
+                </div>
+            </div>
+
+            <br>
+            <br>
+
+            <div class="uk-flex uk-flex-center uk-flex-middle" uk-grid>
+
+                <div class="uk-width-1-3@l uk-width-1-2@s">
+                    <div class="uk-card uk-card-default uk-card-body uk-flex uk-flex-column uk-flex-middle">
+                        <h4 class="uk-padding-remove uk-margin-remove">Premium mensal</h4>
+                        <p class="uk-padding-remove uk-margin-remove uk-text-center">Cobrado mensalmente via<br>cartão
+                            de crédito</p>
+                        <br>
+                        <div class="uk-flex uk-flex-row uk-margin-top uk-margin-bottom">
+                            <h2>ESGOTADO</h2>
+                        </div>
+
+                        <div class="uk-width-1-1">
+                            <ul class="uk-list">
+                                <li><span
+                                        class="uk-text-secondary uk-text-bolder uk-margin-large-left@s uk-margin-right"
+                                        uk-icon="icon: check; ratio: 1"></span>Acesso à todo conteúdo</li>
+                                <li><span
+                                        class="uk-text-secondary uk-text-bolder uk-margin-large-left@s uk-margin-right"
+                                        uk-icon="icon: check; ratio: 1"></span>Emissão de Certificado</li>
+                                <li><span
+                                        class="uk-text-secondary uk-text-bolder uk-margin-large-left@s uk-margin-right"
+                                        uk-icon="icon: check; ratio: 1"></span>53 cursos disponíveis</li>
+                                <li><span
+                                        class="uk-text-secondary uk-text-bolder uk-margin-large-left@s uk-margin-right"
+                                        uk-icon="icon: check; ratio: 1"></span>4 carreiras disponíveis</li>
+                                <li><span
+                                        class="uk-text-secondary uk-text-bolder uk-margin-large-left@s uk-margin-right"
+                                        uk-icon="icon: check; ratio: 1"></span>161 temas de tecnologia</li>
+                                <li><span
+                                        class="uk-text-secondary uk-text-bolder uk-margin-large-left@s uk-margin-right"
+                                        uk-icon="icon: check; ratio: 1"></span>Conteúdo novo todo mês</li>
+                                <li><span
+                                        class="uk-text-secondary uk-text-bolder uk-margin-large-left@s uk-margin-right"
+                                        uk-icon="icon: check; ratio: 1"></span>Cobrado mensalmente</li>
+                            </ul>
+                        </div>
+                        <br>
+                        <a href="https://go.balta.io/lista-espera-mensal"
+                            class="uk-button uk-button-secondary uk-width-1-1">Me Avise</a>
+                        <p>
+                            <a href="">Política de privacidade</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="uk-width-1-3@l uk-width-1-2@s">
+                    <div
+                        class="uk-card uk-card-default uk-card-body uk-flex uk-flex-column uk-flex-middle border-fullstack">
+                        <h4 class="uk-padding-remove uk-margin-remove">Premium semestral</h4>
+                        <p class="uk-padding-remove uk-margin-remove uk-text-center">Compra única, parcelada em
+                            até<br>12x no cartão de crédito</p>
+                        <br>
+                        <div class="uk-flex uk-flex-row uk-margin-top uk-margin-bottom">
+                            <div class="uk-flex uk-flex-column uk-flex-top uk-text-right uk-margin-small-right">
+                                <strong>12x</strong>
+                                <span>R$</span>
+                            </div>
+                            <div>
+                                <h3 class="uk-heading-large">33</h3>
+                            </div>
+                            <div class="uk-flex uk-flex-column uk-flex-start uk-flex-left uk-margin-small-left">
+                                <h2 class="uk-padding-remove uk-margin-remove">,33</h2>
+                                <span>=R$ 399,90</span>
+                            </div>
+                        </div>
+
+                        <div class="uk-width-1-1">
+                            <ul class="uk-list">
+                                <li><span
+                                        class="uk-text-secondary uk-text-bolder uk-margin-large-left@s uk-margin-right"
+                                        uk-icon="icon: check; ratio: 1"></span>6 meses de acesso</li>
+                                <li><span
+                                        class="uk-text-secondary uk-text-bolder uk-margin-large-left@s uk-margin-right"
+                                        uk-icon="icon: check; ratio: 1"></span>Acesso à todo conteúdo</li>
+                                <li><span
+                                        class="uk-text-secondary uk-text-bolder uk-margin-large-left@s uk-margin-right"
+                                        uk-icon="icon: check; ratio: 1"></span>Emissão de Certificado</li>
+                                <li><span
+                                        class="uk-text-secondary uk-text-bolder uk-margin-large-left@s uk-margin-right"
+                                        uk-icon="icon: check; ratio: 1"></span>Tira Dúvidas Online</li>
+                                <li><span
+                                        class="uk-text-secondary uk-text-bolder uk-margin-large-left@s uk-margin-right"
+                                        uk-icon="icon: check; ratio: 1"></span>53 cursos disponíveis</li>
+                                <li><span
+                                        class="uk-text-secondary uk-text-bolder uk-margin-large-left@s uk-margin-right"
+                                        uk-icon="icon: check; ratio: 1"></span>4 carreiras disponíveis</li>
+                                <li><span
+                                        class="uk-text-secondary uk-text-bolder uk-margin-large-left@s uk-margin-right"
+                                        uk-icon="icon: check; ratio: 1"></span>161 temas de tecnologia</li>
+                                <li><span
+                                        class="uk-text-secondary uk-text-bolder uk-margin-large-left@s uk-margin-right"
+                                        uk-icon="icon: check; ratio: 1"></span>Conteúdo novo todo mês</li>
+                                <li>
+                                    <span
+                                        class="uk-text-secondary uk-text-bolder uk-margin-large-left@s uk-margin-right"
+                                        uk-icon="icon: check; ratio: 1"></span><a href="">Encontros Premium</a>
+                                </li>
+                                <li><span
+                                        class="uk-text-secondary uk-text-bolder uk-margin-large-left@s uk-margin-right"
+                                        uk-icon="icon: check; ratio: 1"></span>7 dias para arrependimento</li>
+                            </ul>
+                        </div>
+                        <br>
+                        <a class="uk-button uk-button-primary uk-width-1-1" href="/checkout/semestral">Começar agora</a>
+                        <p>
+                            <a href="">Política de privacidade</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="uk-width-1-3@l uk-width-1-2@s">
+                    <div class="uk-card uk-card-default uk-card-body uk-flex uk-flex-column uk-flex-middle">
+                        <h4 class="uk-padding-remove uk-margin-remove">Premium anual</h4>
+                        <p class="uk-padding-remove uk-margin-remove uk-text-center">Compra única, parcelada em
+                            até<br>12x no cartão de crédito</p>
+                        <br>
+                        <div class="uk-flex uk-flex-row uk-margin-top uk-margin-bottom">
+                            <div class="uk-flex uk-flex-column uk-flex-top uk-text-right uk-margin-small-right">
+                                <strong>12x</strong>
+                                <span>R$</span>
+                            </div>
+                            <div>
+                                <h3 class="uk-heading-large">64</h3>
+                            </div>
+                            <div class="uk-flex uk-flex-column uk-flex-start uk-flex-left uk-margin-small-left">
+                                <h2 class="uk-padding-remove uk-margin-remove">,99</h2>
+                                <span>=R$ 779,90</span>
+                            </div>
+                        </div>
+
+                        <div class="uk-width-1-1">
+                            <ul class="uk-list">
+                                <li><span
+                                        class="uk-text-secondary uk-text-bolder uk-margin-large-left@s uk-margin-right"
+                                        uk-icon="icon: check; ratio: 1"></span>1 ano de acesso</li>
+                                <li><span
+                                        class="uk-text-secondary uk-text-bolder uk-margin-large-left@s uk-margin-right"
+                                        uk-icon="icon: check; ratio: 1"></span>Acesso à todo conteúdo</li>
+                                <li><span
+                                        class="uk-text-secondary uk-text-bolder uk-margin-large-left@s uk-margin-right"
+                                        uk-icon="icon: check; ratio: 1"></span>Emissão de Certificado</li>
+                                <li><span
+                                        class="uk-text-secondary uk-text-bolder uk-margin-large-left@s uk-margin-right"
+                                        uk-icon="icon: check; ratio: 1"></span>Tira Dúvidas Online</li>
+                                <li><span
+                                        class="uk-text-secondary uk-text-bolder uk-margin-large-left@s uk-margin-right"
+                                        uk-icon="icon: check; ratio: 1"></span>53 cursos disponíveis</li>
+                                <li><span
+                                        class="uk-text-secondary uk-text-bolder uk-margin-large-left@s uk-margin-right"
+                                        uk-icon="icon: check; ratio: 1"></span>4 carreiras disponíveis</li>
+                                <li><span
+                                        class="uk-text-secondary uk-text-bolder uk-margin-large-left@s uk-margin-right"
+                                        uk-icon="icon: check; ratio: 1"></span>161 temas de tecnologia</li>
+                                <li><span
+                                        class="uk-text-secondary uk-text-bolder uk-margin-large-left@s uk-margin-right"
+                                        uk-icon="icon: check; ratio: 1"></span>Conteúdo novo todo mês</li>
+                                <li>
+                                    <span
+                                        class="uk-text-secondary uk-text-bolder uk-margin-large-left@s uk-margin-right"
+                                        uk-icon="icon: check; ratio: 1"></span><a href="">Encontros Premium</a>
+                                </li>
+                                <li><span
+                                        class="uk-text-secondary uk-text-bolder uk-margin-large-left@s uk-margin-right"
+                                        uk-icon="icon: check; ratio: 1"></span>7 dias para arrependimento</li>
+                            </ul>
+                        </div>
+                        <br>
+                        <a class="uk-button uk-button-primary uk-width-1-1" href="/checkout/anual">Começar agora</a>
+                        <p>
+                            <a href="">Política de privacidade</a>
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <br>
+        <br>
+
+        <div class="uk-container">
+            <div class="uk-margin-large-top">
+                <div class="uk-text-center">
+                    <p class="uk-padding-remove uk-margin-remove uk-text-bolder">Precisa de ajuda?</p>
+                    <h2 class="uk-padding-remove uk-margin-remove">Dúvidas frequentes</h2>
+                </div>
+            </div>
+
+            <br>
+            <br>
+
+            <div class="uk-flex uk-flex-center">
+                <ul uk-accordion class="uk-width-1-2@m">
+                    <li>
+                        <a class="uk-accordion-title" href="#">Posso começar de graça?</a>
+                        <div class="uk-accordion-content">
+                            <p>
+                                Sim! Basta <a href="https://balta.io/comecar" class="uk-text-emphasis"
+                                    target="_blank"><u>criar
+                                        sua conta gratuita</u></a> no balta.io e começar seus estudos. Nós contamos com
+                                <a class="uk-text-emphasis" href=""><u>diversos cursos TOTALMENTE
+                                        gratuitos</u></a> e com certificado de conclusão.
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="uk-accordion-title" href="#">Vou ter que pagar algo?</a>
+                        <div class="uk-accordion-content">
+                            <p>
+                                Nós temos cursos gratuitos e pagos, porém você não precisa informar nenhum dado de
+                                pagamento
+                                para começar seus estudos gratuitamente conosco. Os cursos gratuitos são completos e com
+                                certificado de conclusão, você não paga nada por eles. <br />
+                                <br />
+                                Porém, caso queira algo mais <a class="uk-text-emphasis" href=""><u>Premium</u></a>,
+                                você terá acesso à diversos benefícios que vão te ajudar ainda mais em sua carreira.
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="uk-accordion-title" href="#">Por onde devo começar?</a>
+                        <div class="uk-accordion-content">
+                            <p>
+                                Siga SEMPRE as nossas <a href=""><u>Carreiras</u></a>, elas vão te orientar em todos
+                                os sentidos. Os cursos já estão organizados em categorias e carreiras para facilitar seu
+                                aprendizado. <br />
+                                Nossa sugestão para aprendizado é começar pelo Backend e seguindo para Frontend e
+                                Mobile. <br />
+                            <ul>
+                                <li>Backend</li>
+                                <li>Frontend</li>
+                                <li>Mobile</li>
+                            </ul>
+                            </p>
+                        </div>
+                    </li>
+
+
+                    <li>
+                        <a class="uk-accordion-title" href="#">Os cursos ensinam tudo que preciso?</a>
+                        <div class="uk-accordion-content">
+                            <p>
+                                Nenhum curso no mundo vai te ensinar tudo, desculpa ser sincero! Os cursos são uma base,
+                                eles
+                                fornecem por volta de 30% do que você precisa aprender, o resto é com você, com
+                                dedicação e
+                                MUITA prática.
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="uk-accordion-title" href="#">O que eu devo estudar?</a>
+                        <div class="uk-accordion-content">
+                            <p>
+                                Java ou .NET? Angular ou React? Xamarin ou Flutter? A resposta é simples e direta: "Você
+                                já sabe
+                                o básico?" <br />
+                                <br />
+                                Se você ainda não sabe BEM o básico, ou seja, os fundamentos, OOP, SOLID, Clean Code,
+                                está
+                                perdendo tempo estudando Frameworks ou até coisas mais avançadas como Docker. Foque nos
+                                seus
+                                objetivos primeiro.
+                                <br />
+                                Agora se você está indeciso sobre qual Framework estudar, a boa notícia é que o mercado
+                                neste
+                                momento está bem aquecido e você tem várias oportunidade. Desta forma o que levaríamos
+                                em conta
+                                para tomar esta decisão seria:
+                                <br />
+                            <ul>
+                                <li>Já sei o básico</li>
+                                <li>O Framework/Tecnologia tem mercado onde eu estou (região)</li>
+                                <li>O Framework/Tecnologia é utilizado em uma empresa onde quero atual</li>
+                                <li>O Framework/Tecnologia resolve meu problema</li>
+                                <li>Eu gosto de utilizar o Framework/Tecnologia</li>
+                            </ul>
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a class="uk-accordion-title" href="#">Estou pronto para estudar no balta.io?</a>
+                        <div class="uk-accordion-content">
+                            <p>
+                                Com certeza! O primeiro passo é começar e você pode fazer isto agora mesmo! <br />
+                                <br />
+                                <a href="https://balta.io/comecar" class="uk-button uk-button-secondary">Começar de
+                                    graça</a>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <p class="uk-text-center uk-margin-top">
+                <a class="uk-text-emphasis" href="/guia"><strong><u>Ainda tem dúvidas?</u></strong></a>
+            </p>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="background-dark-light">
+            <div class="uk-container">
+                <div id="modal-newsletter" class="uk-modal-full" uk-modal>
+                    <div class="uk-modal-dialog uk-flex uk-flex-center uk-flex-middle uk-height-viewport">
+                        <button class="uk-modal-close-default" type="button" uk-close></button>
+                        <div role="main" id="newsletter-site-2020-3abf120030efac79c090"></div>
+                    </div>
+                </div>
+
+                <div
+                    class="uk-padding-large-top uk-flex uk-flex-column@s uk-flex-row@m uk-flex-between uk-flex-middle uk-border-rounded uk-padding">
+                    <div>
+                        <h3 class="uk-padding-remove uk-margin-remove">Assine nosso Newsletter</h3>
+                        <p class="uk-padding-remove uk-margin-remove">
+                            <small>Receba em primeira mão todas as nossas novidades.</small>
+                        </p>
+                    </div>
+                    <div>
+                        <a href="#modal-newsletter" uk-toggle class="uk-button uk-button-primary">Cadastrar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <br>
+    </main>
+
+    <div class="uk-container">
+        <div class="uk-margin-large-top" uk-grid>
+            <div class="uk-width-1-4@l uk-width-1-2@s">
+                <img src="https://baltaio.blob.core.windows.net/static/images/dark/balta-logo.svg" class="uk-width-1-2"
+                    alt="balta.io" />
+            </div>
+            <div class="uk-width-expand">
+                <div uk-grid>
+                    <div class="uk-width-1-4@l uk-width-1-2@s">
+                        <h4 class="uk-padding-remove uk-margin-remove">Sobre</h4>
+                        <ul class="uk-list">
+                            <li><a href="/como-funciona">Como funciona?</a></li>
+                            <li><a href="">Seja Premium</a></li>
+                            <li><a href="/agenda">Agenda</a></li>
+                            <li><a href="/blog">Blog</a></li>
+                            <li><a href="/cursos">Todos os cursos</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="uk-width-1-4@l uk-width-1-2@s">
+                        <h4 class="uk-padding-remove uk-margin-remove">Cursos</h4>
+                        <ul class="uk-list">
+                            <li><a href="/categorias/frontend">Frontend</a></li>
+                            <li><a href="/categorias/backend">Backend</a></li>
+                            <li><a href="/categorias/mobile">Mobile</a></li>
+                            <li><a href="/categorias/fullstack">Fullstack</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="uk-width-1-4@l uk-width-1-2@s">
+                        <h4 class="uk-padding-remove uk-margin-remove">Suporte</h4>
+                        <ul class="uk-list">
+                            <li><a href="/politicas/uso">Termos de uso</a></li>
+                            <li><a href="/politicas/privacidade">Privacidade</a></li>
+                            <li><a href="/politicas/cancelamento">Cancelamento</a></li>
+                            <li><a href="/ajuda">Central de ajuda</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="uk-width-1-4@l uk-width-1-2@s">
+                        <h4 class="uk-padding-remove uk-margin-remove">Redes Sociais</h4>
+                        <ul class="uk-list">
+                            <li><a href="https://t.me/baltaio" target="_blank">Telegram</a></li>
+                            <li><a href="https://www.facebook.com/balta.io" target="_blank">Facebook</a></li>
+                            <li><a href="https://instagram.com/balta.io" target="_blank">Instagram</a></li>
+                            <li><a href="https://www.youtube.com/c/baltaio" target="_blank">YouTube</a></li>
+                            <li><a href="https://www.twitch.tv/balta_io" target="_blank">Twitch</a></li>
+                            <li><a href="https://www.linkedin.com/company/balta-io/" target="_blank">LinkedIn</a></li>
+                            <li><a href="https://discord.gg/jHpDFvX3ak" target="_blank">Discord</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <script src="https://baltaio.blob.core.windows.net/static/js/uikit.min.js?v1"></script>
+    <script src="https://baltaio.blob.core.windows.net/static/js/uikit-icons.min.js?v1"></script>
+
+    <script src="https://baltaio.blob.core.windows.net/static/js/jquery-3.5.1.min.js?v1"></script>
+    <script src="https://baltaio.blob.core.windows.net/static/js/jquery.validate.min.js?v1"></script>
+    <script src="https://baltaio.blob.core.windows.net/static/js/jquery.validate.unobtrusive.min.js?v1"></script>
+    <script src="https://baltaio.blob.core.windows.net/static/js/additional-methods.min.js?v1"></script>
+
+    <script type="text/javascript" async
+        src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/89adbcfe-3c71-467f-9fdb-a721793afc26-loader.js"></script>
+    <script type="text/javascript"
+        src="https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js"></script>
+    <script
+        type="text/javascript">new RDStationForms('newsletter-site-2020-3abf120030efac79c090', 'UA-48664517-12').createForm();</script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48664517-12"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-48664517-12');
+    </script>
+
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+                n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window,
+            document,
+            'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '140466216814592');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display: none"
+            src="https://www.facebook.com/tr?id=140466216814592&ev=PageView&noscript=1" />
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+    <!-- OneSignal -->
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <script>
+        var OneSignal = window.OneSignal || [];
+        OneSignal.push(function () {
+            OneSignal.init({
+                appId: "0241ee6c-703e-4fb8-aa73-91a27039ea52",
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>
