@@ -1,10 +1,10 @@
 # Curso **2801 - Fundamentos do C#**.
 
-Conhecer fundamentos é essencial para qualquer desenvolvedor. Os fundamentos sÃ£o os conceitos que servem como um alicerce, e permitirão que você aprenda novas tecnologias com mais facilidade, já que os conceitos fundamentais são compartilhados entre tecnologias diferentes.
+Conhecer fundamentos é essencial para qualquer desenvolvedor. Os fundamentos são os conceitos que servem como um alicerce, e permitirão que você aprenda novas tecnologias com mais facilidade, já que os conceitos fundamentais são compartilhados entre tecnologias diferentes.
 
 Todo o aprendizado deste curso poderá ser reaproveitado em outras linguagens de programação, por isso, não pule este curso!
 
-Nas próximas seções, você descobrirá o que vai aprender neste curso, para quem ele é recomendado, quais as tecnologias utilizas e o que serÃ¡ construÃ­do no decorrer do curso.
+Nas próximas seções, você descobrirá o que vai aprender neste curso, para quem ele é recomendado, quais as tecnologias utilizas e o que será construído no decorrer do curso.
 
 
 ## Neste curso de C# vocÃª vai...
