@@ -10,7 +10,7 @@ namespace MeuApp
         static void Main(string[] args)
         {
             Console.Clear();
-            Aula15();
+            Aula1();
         }
 
         static void Aula0()
@@ -27,11 +27,43 @@ namespace MeuApp
 
         static void Aula1()
         {
+            Console.WriteLine("string.CompareTo(Object/String)");
+            // Documentação
+            // https://docs.microsoft.com/pt-br/dotnet/api/system.string.compareto?view=net-5.0
+            // Retornos 
+            //  -> 0 string passada por parâmetro tem a mesma classificação que a comparada.
+            //  -> 1 string passada por parâmetro precede a comparada na classificação.
+            //  -> -1 string passada por parâmetro vem depois da comparada na classificação.
             var texto = "Testando";
-            Console.WriteLine(texto.CompareTo("Testando")); // Retorna 1 - Verdadeiro
-            Console.WriteLine(texto.CompareTo("testando")); // Retorna 0
-            Console.WriteLine(texto.CompareTo("")); // Retorna 0
-            Console.WriteLine(texto.CompareTo(null)); // Retorna 0
+            Console.WriteLine("var texto = Testando");
+            Console.WriteLine($"texto.CompareTo(\"Testando\") Retorno -> {texto.CompareTo("Testando")} (\"Testando\" mesma classificação que \"{texto}\" em ordem alfabética)\n"); 
+            Console.WriteLine($"texto.CompareTo(\"testando\") Retorno -> {texto.CompareTo("testando")} (\"testando\" precede \"{texto}\" em ordem alfabética)\n"); // Retorna 1 - 'testando' precede var texto.
+            Console.WriteLine($"texto.CompareTo(\"\") Retorno -> {texto.CompareTo("")} (\"\" precede \"{texto}\" em ordem alfabética)\n"); // Retorna 1 - "" precede var texto.
+            Console.WriteLine($"texto.CompareTo(null) Retorno -> {texto.CompareTo(null)} (null precede \"{texto}\" em ordem alfabética)\n"); // Retorna 1 - null precede var texto.
+            Console.WriteLine($"\"b\".CompareTo(\"a\") Retorno -> {"b".CompareTo("a")} (\"a\" precede \"b\" em ordem alfabética)\n"); // Retorna 1 - null precede var texto.
+            Console.WriteLine($"\"a\".CompareTo(\"b\") Retorno -> {"a".CompareTo("b")} (\"b\" sucede \"a\" em ordem alfabética\n");
+            Console.WriteLine("Deseja usar mais comparações?");
+            Console.WriteLine("[1] Sim.\n[2] Não.");
+            string resposta = Console.ReadLine();
+            if(resposta == "1"){
+                Console.Write("String base -> ");
+                string stringBase = Console.ReadLine();
+                Console.Write("String parâmetro -> ");
+                string stringParametro = Console.ReadLine();
+                CompareTo(stringBase,stringParametro);
+            }
+            static void CompareTo(string stringBase, string stringParametro){
+                int resultado = stringBase.CompareTo(stringParametro);
+                if(resultado == 0){
+                    Console.WriteLine("A String passada por parâmetro tem a mesma classificação que a comparada.");
+                }
+                else if(resultado < 0){
+                    Console.WriteLine("A String passada por parâmetro sucede na classificação a String comparada.");
+                }
+                else{
+                    Console.WriteLine("A String passada por paraâmetro precede na classificação a string comparada.");
+                }
+            }
         }
 
         static void Aula2()
